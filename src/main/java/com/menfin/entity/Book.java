@@ -1,50 +1,51 @@
 package com.menfin.entity;
 
-import com.menfin.Actions;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Book {
+    private String author;
+    private String bookName;
+    private int rating;
 
-public class Book implements Actions {
+    public Book() {}
+    public Book(String author) {
+        this.author = author;
+    }
+    public Book(String author, String bookName, int rating) {
+        this.author = author;
+        this.bookName = bookName;
+        this.rating = rating;
+    }
 
-    private List<Book> bookList = new ArrayList<>();
+    public String getAuthor() {
+        return author;
+    }
 
-    @Override
-    public List<Book> getBook() {
-        return bookList;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     @Override
-    public void saveBook() {
-
-    }
-
-    @Override
-    public void updateBook() {
-
-    }
-
-    @Override
-    public void deleteBook() {
-
-    }
-
-    @Override
-    public void sortBook() {
-
-    }
-
-    @Override
-    public void filterBook() {
-
-
-    }
-
-    public List<Book> getBookList() {
-        return bookList;
-    }
-
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
+    public String toString() {
+        return "Book{" +
+                "author='" + author + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

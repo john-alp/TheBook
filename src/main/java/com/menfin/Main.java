@@ -3,27 +3,39 @@ package com.menfin;
 import com.menfin.entity.Book;
 import com.menfin.service.ServiceDB;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         ServiceDB serviceDB = new ServiceDB(new Config());
-        Book book = new Book("Saturn", "rings", 3);
+
+        // CREATE
+//       Book book = new Book("Zbakumov", "ZLife today", 7);
+//        Book book1 = new Book("Bumman", "Java 55", 2);
 
         // save
-        //  serviceDB.saveBook(book);
-        // all
+//        serviceDB.saveBook(book);
+//        serviceDB.saveBook(book1);
 
-        for (Object books : serviceDB.getAllBooks()) {
+        // UPDATE ****************
+        // serviceDB.updateBook(new Book("Stanukovich", "See", 9, "org"));
+        // ************************
+
+        // DELETE by author
+        //serviceDB.deleteBook(new Book("Stanukovich"));
+
+
+
+        for (Book books : serviceDB.getAllBooks()) {
             System.out.println("for" + books);
         }
-
-        System.out.println("getOne " + serviceDB.getOneBook(new Book("Saturn")));
+        System.out.println();
+        for(Book sortBook : serviceDB.sortAuthorNameRating("author")) {
+            System.out.println("sort " + sortBook);
+        }
+//        System.out.println("getOne " + serviceDB.getOneBook(new Book("John Silver")));
 
 //        System.out.println("save" + serviceDB.getAllBooks());
 //        System.out.println();
-        // delete by author
-//        serviceDB.deleteBook(new Book("Remark"));
+
 //        System.out.println("del " + serviceDB.getAllBooks());
 //        System.out.println();
     }

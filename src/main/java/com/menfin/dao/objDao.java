@@ -2,7 +2,8 @@ package com.menfin.dao;
 
 import java.util.List;
 
-public interface CRUD<T> { // T Book
+public interface objDao<T> { // T Book
+
     List<T> getAllBooks();
 
     void saveBook(T book);
@@ -12,4 +13,9 @@ public interface CRUD<T> { // T Book
     void deleteBook(T object);
 
     T getOneBook(T object);
+
+    List<T> sortAuthorNameRating(String stringSortName);
+
+
+
 }

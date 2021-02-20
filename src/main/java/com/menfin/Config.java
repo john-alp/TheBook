@@ -1,6 +1,8 @@
 package com.menfin;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Config {
     private Connection connection;
@@ -9,7 +11,7 @@ public class Config {
     private static final String DB_USERNAME = "postgres";
     private static final String DB_PASSWORD = "postgres";
 
-    public Config () {
+    public Config() {
         initDB();
     }
 

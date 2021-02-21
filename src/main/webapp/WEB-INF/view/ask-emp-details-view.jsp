@@ -9,16 +9,16 @@
     Author: <br><form:input path="author"/>
     <form:errors path="author"/>
     <br><br>
-    Book title: <br><form:input path="surName"/>
-    <form:errors path="surName"/>
+    Book title: <br><form:input path="nameBook"/>
+    <form:errors path="nameBook"/>
     <br><br>
-    Salary do you want <br><form:input path="salary"/>
-    <form:errors path="salary"/>
+    Book rating: <br><form:input path="rating"/>
+    <form:errors path="rating"/>
     <br><br>
-    Phone number<br><form:input path="phoneNumber"/>
-    <form:errors path="phoneNumber"/>
-    <br><br>
-    Scope of work <form:select path="department">
+<%--    Phone number<br><form:input path="phoneNumber"/>--%>
+<%--    <form:errors path="phoneNumber"/>--%>
+<%--    <br><br>--%>
+    Book search: <form:select path="department">
     <form:options items="${friend.departments}"/>
     </form:select>
     <br><br><br>

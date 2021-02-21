@@ -1,11 +1,19 @@
 package com.menfin.mvc;
 
+import com.menfin.Config;
+import com.menfin.dao.ObjDao;
+import com.menfin.entity.Book;
+import com.menfin.service.ServiceDB;
+import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 //@RequestMapping("/go")
@@ -16,11 +24,20 @@ public class MyController {
         return "first-view";
     }
 
+//    @RequestMapping("/askDetails")
+//    public String askEmployeeDetails(Model model) {
+//        model.addAttribute("friend", new Friend());
+//        return "ask-emp-details-view";
+//       // return "ask-book-details-view";
+//    }
+
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails(Model model) {
-        model.addAttribute("friend", new Friend());
-        return "ask-emp-details-view";
+    public String askEmployeeDetails2(Model model) {
+        System.out.println("I am askDetails");
+        model.addAttribute("addBookAttribute", new Friend());
+            return "ask-book-details-view";
     }
+
 
     @RequestMapping("/showDetails")
     public String showEmpDetails(@Valid @ModelAttribute("friend") com.menfin.mvc.Friend employee
@@ -30,5 +47,28 @@ public class MyController {
         } else {
             return "show-emp-details-view";
         }
+    }
+
+    @RequestMapping("/addBook")
+    public String showAddBook(HttpServletRequest request, Model model) {
+        System.out.println("I am addBook");
+        ObjDao<Book> objDao = new ServiceDB(new Config());
+        String author = request.getParameter("author");
+
+        model.addAttribute("testAuthor", author);
+        model.addAttribute("list", objDao.getAllBooks());
+
+        model.addAllAttributes(objDao.getAllBooks());
+
+        System.out.println("May" + author);
+
+
+        return "show-emp-details-view";
+
+//        if(bindingResult.hasErrors()) {
+//            return "ask-emp-details-view";
+//        } else {
+//            return "show-emp-details-view";
+//        }
     }
 }

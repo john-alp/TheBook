@@ -2,27 +2,36 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Dear Friend, your wishes will be fulfilled very soon!</h2>
+<h2>Our library</h2>
 <br><br><br>
-Your name: ${friend.author}
+<%--Your name: ${friend.author}--%>
+<%--<br>--%>
+<%--Your surname: ${friend.nameBook}--%>
+<%--<br>--%>
+<%--Your salary: ${friend.rating}--%>
+<%--<br>--%>
+<%--Your department: ${friend.department}--%>
+<%--<br>--%>
+<%--Your car: ${friend.carBrand}--%>
 <br>
-Your surname: ${friend.surName}
+Our books:
 <br>
-Your salary: ${friend.salary}
+Your book: ${testAuthor}
 <br>
-Your department: ${friend.department}
-<br>
-Your car: ${friend.carBrand}
-<br>
-Language(s):
+<%--<ul>--%>
+<%--    <c:forEach var="lang" items="${friend.bookList}">--%>
+<%--        <li> ${lang} </li>--%>
+<%--    </c:forEach>--%>
+<%--    <br>--%>
+<%--</ul>--%>
 <ul>
-    <c:forEach var="lang" items="${friend.languages}">
+    <c:forEach var="lang" items="${list}">
         <li> ${lang} </li>
     </c:forEach>
     <br>
 </ul>
-<br>
-Phone number: ${friend.phoneNumber}
-<br>
+<%--<br>--%>
+<%--Phone number: ${friend.phoneNumber}--%>
+<%--<br>--%>
 </body>
 </html>

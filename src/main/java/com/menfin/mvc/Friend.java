@@ -2,38 +2,53 @@
 package com.menfin.mvc;
 
 
+import com.menfin.Config;
+import com.menfin.entity.Book;
+import com.menfin.service.ServiceDB;
+
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Friend {
     private final int MINSIZE = 2;
     private final int MAXSIZE = 30;
-    private final int MINSALARY = 49999;
-    private final int MAXSALARY = 150001;
+    private final int MINSALARY = 0;
+    private final int MAXSALARY = 9;
     private final String PATTERNFORPHONE = "\\d{3}-\\d{3}-\\d{2}-\\d{2}";
-    @Size(min = MINSIZE, max = MAXSIZE, message = " Sorry, name must be min " + MINSIZE
-            + " symbols, max " + MAXSIZE + " symbols")
+//    @Size(min = MINSIZE, max = MAXSIZE, message = " Sorry, name must be min " + MINSIZE
+//            + " symbols, max " + MAXSIZE + " symbols")
     private String author;
     // @NotNull()
     // @NotEmpty()
-    @NotBlank(message = "Sorry, surname is required field")
-    private String surName;
-    @Min(value = MINSALARY, message = "must be greater than " + MINSALARY)
-    @Max(value = MAXSALARY, message = "must be greater than " + MAXSALARY)
-    private int salary;
+
+//    @NotBlank(message = "Sorry, surname is required field")
+    private String nameBook;
+
+//    @Min(value = MINSALARY, message = "must be greater than " + MINSALARY)
+//    @Max(value = MAXSALARY, message = "must be greater than " + MAXSALARY)
+    private int rating;
     private String department;
     private Map<String, String> departments;
     private String carBrand;
     private Map<String, String> carBrands;
     private String[] languages;
+    private List<Book> bookList = new ArrayList<>();
     private Map<String, String> languageList;
-    @Pattern(regexp = PATTERNFORPHONE, message = "Please use pattern XXX-XXX-XX-XX")
+
+//    @Pattern(regexp = PATTERNFORPHONE, message = "Please use pattern XXX-XXX-XX-XX")
     private String phoneNumber;
 
     public Friend() {
+       bookList = new ServiceDB(new Config()).getAllBooks();
+
+
         if (departments == null) {
             departments = new HashMap<>();
+
+
             departments.put("Information Technology", "IT");
             departments.put("Human Resources", "HR");
             departments.put("Sales", "Sales");
@@ -52,10 +67,10 @@ public class Friend {
         languageList.put("China", "CH");
     }
 
-    public Friend(final String author, final String surName, final int salary) {
+    public Friend(final String author, final String nameBook, final int rating) {
         this.author = author;
-        this.surName = surName;
-        this.salary = salary;
+        this.nameBook = nameBook;
+        this.rating = rating;
     }
 
     public String getAuthor() {
@@ -66,20 +81,20 @@ public class Friend {
         this.author = author;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getNameBook() {
+        return nameBook;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
     }
 
-    public int getSalary() {
-        return salary;
+    public int getRating() {
+        return rating;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getDepartment() {
@@ -138,4 +153,11 @@ public class Friend {
         this.phoneNumber = phoneNumber;
     }
 
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 }

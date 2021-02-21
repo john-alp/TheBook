@@ -1,14 +1,14 @@
 package com.menfin.service;
 
 import com.menfin.Config;
-import com.menfin.dao.objDao;
+import com.menfin.dao.ObjDao;
 import com.menfin.entity.Book;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceDB implements objDao<Book> {
+public class ServiceDB implements ObjDao<Book> {
 
     private final Connection connection;
 

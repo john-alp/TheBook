@@ -2,6 +2,7 @@ package com.menfin.entity;
 
 
 public class Book {
+
     private String author;
     private String bookName;
     private int rating;

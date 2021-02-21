@@ -2,7 +2,7 @@ package com.menfin.dao;
 
 import java.util.List;
 
-public interface objDao<T> { // T Book
+public interface ObjDao<T> { // T Book
 
     List<T> getAllBooks();
 

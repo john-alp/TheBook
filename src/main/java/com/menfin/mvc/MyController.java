@@ -31,13 +31,22 @@ public class MyController {
 //       // return "ask-book-details-view";
 //    }
 
+//    @RequestMapping("/askDetails")
+//    public String askEmployeeDetails2(Model model) {
+//        System.out.println("I am askDetails");
+//        model.addAttribute("addBookAttribute", new Book());
+//        return "ask-book-details-view";
+//    }
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails2(Model model) {
-        System.out.println("I am askDetails");
-        model.addAttribute("addBookAttribute", new Friend());
-            return "ask-book-details-view";
+    public String askSelectAction(Model model) {
+        System.out.println("I am askAction");
+        model.addAttribute("selectBook", new Book());
+        return "ask-book-select-view";
     }
 
+    public String showSelectBook(HttpServletRequest request, Model model) {
+        return "show-emp-details-view";
+    }
 
     @RequestMapping("/showDetails")
     public String showEmpDetails(@Valid @ModelAttribute("friend") com.menfin.mvc.Friend employee
@@ -51,16 +60,20 @@ public class MyController {
 
     @RequestMapping("/addBook")
     public String showAddBook(HttpServletRequest request, Model model) {
-        System.out.println("I am addBook");
         ObjDao<Book> objDao = new ServiceDB(new Config());
-        String author = request.getParameter("author");
+        Book book = new Book();
 
-        model.addAttribute("testAuthor", author);
+        book.setAuthor(request.getParameter("author"));
+        book.setBookName(request.getParameter("bookName"));
+        book.setRating(Integer.parseInt(request.getParameter("rating")));
+        System.out.println("book to DB " + book);
+         objDao.saveBook(book);
+
         model.addAttribute("list", objDao.getAllBooks());
 
-        model.addAllAttributes(objDao.getAllBooks());
+    //    model.addAllAttributes(objDao.getAllBooks());
 
-        System.out.println("May" + author);
+        System.out.println("May!!!!");
 
 
         return "show-emp-details-view";

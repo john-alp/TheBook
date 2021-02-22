@@ -9,8 +9,8 @@
     Author: <br><form:input path="author"/>
     <form:errors path="author"/>
     <br><br>
-    Book title: <br><form:input path="nameBook"/>
-    <form:errors path="nameBook"/>
+    Book title: <br><form:input path="bookName"/>
+    <form:errors path="bookName"/>
     <br><br>
     Book rating: <br><form:input path="rating"/>
     <form:errors path="rating"/>

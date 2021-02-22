@@ -19,6 +19,7 @@ public class Book {
         this.author = author;
         this.bookName = bookName;
         this.rating = rating;
+        System.out.println("I am born - book " + author);
     }
 
     public Book(String author, String bookName, int rating, String searchAuthorBook) {

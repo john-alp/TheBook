@@ -6,7 +6,6 @@ import com.menfin.Config;
 import com.menfin.entity.Book;
 import com.menfin.service.ServiceDB;
 
-import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +24,7 @@ public class Friend {
     // @NotEmpty()
 
 //    @NotBlank(message = "Sorry, surname is required field")
-    private String nameBook;
+    private String bookName;
 
 //    @Min(value = MINSALARY, message = "must be greater than " + MINSALARY)
 //    @Max(value = MAXSALARY, message = "must be greater than " + MAXSALARY)
@@ -67,9 +66,9 @@ public class Friend {
         languageList.put("China", "CH");
     }
 
-    public Friend(final String author, final String nameBook, final int rating) {
+    public Friend(final String author, final String bookName, final int rating) {
         this.author = author;
-        this.nameBook = nameBook;
+        this.bookName = bookName;
         this.rating = rating;
     }
 
@@ -81,12 +80,12 @@ public class Friend {
         this.author = author;
     }
 
-    public String getNameBook() {
-        return nameBook;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
     public int getRating() {

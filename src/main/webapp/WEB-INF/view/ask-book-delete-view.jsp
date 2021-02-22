@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Please, add book</h2>
+<h2>Please delete the book by selecting the author</h2>
 <br><br>
-<%--addBook  @RequestMapping--%>
-<form:form action="addBook" modelAttribute="addBookAttribute">
+<form:form action="deleteBook" modelAttribute="delBookAttribute">
     Author: <br><form:input path="author"/>
-
     <form:errors path="author"/>
     <br><br>
 
@@ -18,7 +16,7 @@
     Book rating: <br><form:input path="rating"/>
     <form:errors path="rating"/>
     <br><br>
-    <%--setters will work here--%>
+
     <input type="submit" value="OK!">
 </form:form>
 </body>
